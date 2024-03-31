@@ -140,6 +140,23 @@ plane.stop();
 
 // ------------------------------task-3------------------------------- //
 
+class Product {
+  constructor(title, price) {
+    this.title = title;
+    this.price = price;
+  }
+}
+
+class DiscountProduct extends Product {
+  constructor(title, price, discountPercent) {
+    super(title, price);
+    this.discountPercent = discountPercent;
+  }
+  calculateDiscountPrice() {
+    const valueOfDiscount = (this.price * this.discountPercent) / 100;
+    return this.price - valueOfDiscount;
+  }
+}
 class Customer {
   constructor(name) {
     this.name = name;
@@ -173,24 +190,6 @@ class Customer {
     );
     this.shoppingCart = [];
     this.sum = 0;
-  }
-}
-
-class Product {
-  constructor(title, price) {
-    this.title = title;
-    this.price = price;
-  }
-}
-
-class DiscountProduct extends Product {
-  constructor(title, price, discountPercent) {
-    super(title, price);
-    this.discountPercent = discountPercent;
-  }
-  calculateDiscountPrice() {
-    const valueOfDiscount = (this.price * this.discountPercent) / 100;
-    return this.price - valueOfDiscount;
   }
 }
 
