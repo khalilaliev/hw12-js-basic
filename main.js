@@ -26,50 +26,48 @@ class Car {
     this.speed = speed;
   }
   ride() {
-    console.log(`${this.model} going at a speed of ${this.speed}km/h!`);
+    console.log(`${this.model} going at a speed of ${this.speed}km/h.`);
   }
-  stop(valueOfSpeed) {
-    // this.speed = 0
-    console.log(`${this.model} stopped. Speed is ${valueOfSpeed}km/h`);
+  stop() {
+    this.speed = 0;
+    console.log(`${this.model} stopped. Speed is ${this.speed}km/h.`);
   }
-  gase(valueOfSpeed) {
-    // this.speed += 10
-    valueOfSpeed = this.speed + valueOfSpeed;
-    console.log(`${this.model} going at a speed of ${valueOfSpeed}km/h!`);
+  gase() {
+    this.speed += 10;
+    console.log(`${this.model} going at a speed of ${this.speed}km/h.`);
   }
-  break(valueOfSpeed) {
-    // this.speed -= 10
-    valueOfSpeed = this.speed - valueOfSpeed;
-    console.log(`${this.model} going at a speed of ${valueOfSpeed}km/h!`);
+  break() {
+    this.speed -= 10;
+    console.log(`${this.model} going at a speed of ${this.speed}km/h.`);
   }
 }
 
 const audi = new Car("Audi", 120);
 audi.ride();
-audi.stop(0);
-audi.gase(10);
-audi.break(10);
+audi.stop();
+audi.gase();
+audi.break();
 
 // ------------------------------task-3------------------------------- //
 
 class TodoList {
-  constructor() {
-    this.todos = [];
-  }
-  show() {
+  #show() {
     this.todos.forEach((task, index) => {
       console.log(`${index + 1}. ${task}`);
     });
   }
+  constructor() {
+    this.todos = [];
+  }
   addTask(task) {
     this.todos.push(task);
-    this.show();
+    this.#show();
   }
   removeTask(task) {
     this.todos = this.todos.filter((item) => {
       return item !== task;
     });
-    this.show();
+    this.#show();
   }
 }
 const todoList = new TodoList();
